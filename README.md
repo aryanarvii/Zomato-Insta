@@ -14,13 +14,13 @@ Food partners can upload their food videos, manage listings, and engage with cus
 
 ---
 
-# Demo User
-email: test@g.com
-password: 12345678
+### Demo User
+- email: test@g.com
+- password: 12345678
 
-# Demo Food Partner
-email: foodtest@g.com
-password: 12345678
+### Demo Food Partner
+- email: foodtest@g.com
+- password: 12345678
 
 ---
 
