@@ -13,7 +13,7 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://tastetube-theta.vercel.app",  // frontend deployed URL
+      "https://tastetube-lkkjcj108-aryan-arvinds-projects.vercel.app/",  // frontend deployed URL
       "http://localhost:5173"                // for local testing
     ],
     credentials: true,
