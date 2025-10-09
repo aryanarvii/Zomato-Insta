@@ -1,13 +1,3 @@
-# Live Link: https://tastetube-lkkjcj108-aryan-arvinds-projects.vercel.app/
-
-# Demo User
-email: test@g.com
-password: 12345678
-
-# Demo Food Partner
-email: foodtest@g.com
-password: 12345678
-
 
 # 🍴 TasteTube — Zomato Meets Instagram Reels  
 
@@ -19,8 +9,18 @@ Food partners can upload their food videos, manage listings, and engage with cus
 
 ## 🚀 Live Links
 
-🌐 **Frontend (Vercel)** → [https://tastetube-theta.vercel.app]([https://tastetube-theta.vercel.app](https://tastetube-lkkjcj108-aryan-arvinds-projects.vercel.app/))  
-🖥️ **Backend (Render)** → [https://tastetube.onrender.com](https://tastetube.onrender.com)
+- 🌐 **Frontend (Vercel)** → [https://tastetube-theta.vercel.app]([https://tastetube-theta.vercel.app](https://tastetube-lkkjcj108-aryan-arvinds-projects.vercel.app/))
+- 🖥️ **Backend (Render)** → [https://tastetube.onrender.com](https://tastetube.onrender.com)
+
+---
+
+# Demo User
+email: test@g.com
+password: 12345678
+
+# Demo Food Partner
+email: foodtest@g.com
+password: 12345678
 
 ---
 
@@ -63,16 +63,16 @@ Food partners can upload their food videos, manage listings, and engage with cus
 
 Deployment Info
 
-Frontend: Deployed on Vercel --> https://tastetube-lkkjcj108-aryan-arvinds-projects.vercel.app/
-Backend: Hosted on Render
-Database: MongoDB Atlas
-Media Storage: ImageKit CDN
+ - Frontend: Deployed on Vercel
+ - Backend: Hosted on Render
+ - Database: MongoDB Atlas
+ - Media Storage: ImageKit CDN
 
-🔮 Upcoming Features
-🤖 AI Chatbot for mood-based food recommendations
-🧾 Coupons and personalized deal suggestions
-🌍 Location-based trending dishes
-🕹️ Full restaurant analytics dashboard
+- 🔮 Upcoming Features
+- 🤖 AI Chatbot for mood-based food recommendations
+- 🧾 Coupons and personalized deal suggestions
+- 🌍 Location-based trending dishes
+- 🕹️ Full restaurant analytics dashboard
 
 🤝 Contributing
 Pull requests are welcome!
@@ -80,9 +80,9 @@ If you'd like to suggest features or report bugs, open an issue.
 
 🧑‍💻 Author
 
-👤 Aryan Arvind
-💼 MERN Stack Developer
-📧 aryanarvi78@gmail.com
+- 👤 Aryan Arvind
+- 💼 MERN Stack Developer
+- 📧 aryanarvi78@gmail.com
 
 
 
