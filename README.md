@@ -9,7 +9,7 @@ Food partners can upload their food videos, manage listings, and engage with cus
 
 ## 🚀 Live Links
 
-- 🌐 **Frontend (Vercel)** → [https://tastetube-theta.vercel.app](https://tastetube-lkkjcj108-aryan-arvinds-projects.vercel.app/)
+- 🌐 **Frontend (Vercel)** → [https://tastetube-theta.vercel.app](https://tastetube-theta.vercel.app/)
 - 🖥️ **Backend (Render)** → [https://tastetube.onrender.com](https://tastetube.onrender.com)
 
 ---
