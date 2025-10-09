@@ -27,7 +27,11 @@ async function registerUser(req, res) {
         id: user._id,
     }, process.env.JWT_SECRET)
 
-    res.cookie("token", token)
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,        // must be true for HTTPS (Render + Vercel)
+        sameSite: "none",    // required when frontend and backend have different domains
+        })
     res
     .status(200)
     .json({
@@ -65,7 +69,11 @@ async function loginUser(req, res){
 
     res
     .status(200)
-    .cookie("token", token)
+    .cookie("token", token, {
+        httpOnly: true,
+        secure: true,        // must be true for HTTPS (Render + Vercel)
+        sameSite: "none",    // required when frontend and backend have different domains
+        })
     .json({
         message:"User logged in successfully",
         user:{
@@ -115,7 +123,11 @@ async function registerFoodPartner(req, res) {
         id: foodPartner._id,
     }, process.env.JWT_SECRET)
 
-    res.cookie("token", token)
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,        // must be true for HTTPS (Render + Vercel)
+        sameSite: "none",    // required when frontend and backend have different domains
+        })
     res
     .status(200)
     .json({
@@ -156,7 +168,11 @@ async function loginFoodPartner(req, res){
 
     res
     .status(200)
-    .cookie("token", token)
+    .cookie("token", token, {
+        httpOnly: true,
+        secure: true,        // must be true for HTTPS (Render + Vercel)
+        sameSite: "none",    // required when frontend and backend have different domains
+        })
     .json({
         message:"Food Partner logged in successfully",
         foodPartner:{
