@@ -10,13 +10,34 @@ const cors = require('cors')
 const app = express();
 
 
+// app.use(
+//   cors({
+//     origin: [
+//       "https://tastetube-lkkjcj108-aryan-arvinds-projects.vercel.app/",  // frontend deployed URL
+//       "http://localhost:5173"                // for local testing
+//     ],
+//     credentials: true,
+//   })
+// );
+
+const allowedOrigins = [
+  "https://tastetube-theta.vercel.app",                   // your main frontend
+  "https://tastetube-lkkjcj108-aryan-arvinds-projects.vercel.app", // preview domain (Vercel auto-generated)
+  "http://localhost:5173",                                // local dev
+];
+
 app.use(
   cors({
-    origin: [
-      "https://tastetube-lkkjcj108-aryan-arvinds-projects.vercel.app/",  // frontend deployed URL
-      "http://localhost:5173"                // for local testing
-    ],
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
+    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
