@@ -18,7 +18,7 @@ const FoodPartnerRegister = () => {
     const password = e.target.password.value;
     const address = e.target.address.value;
 
-    axios.post(`${process.env.REACT_APP_API_URL}/api/auth/food-partner/register`, {
+    axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/api/auth/food-partner/register`, {
       name:businessName,
       contactName,
       phone,
@@ -28,7 +28,12 @@ const FoodPartnerRegister = () => {
     }, { withCredentials: true })
       .then(response => {
         console.log(response.data);
-        navigate("/create-food"); // Redirect to create food page after successful registration
+        // Consider user as authenticated partner right after register
+        try {
+          const userPayload = { userType: 'food-partner', name: businessName, email }
+          localStorage.setItem('user', JSON.stringify(userPayload))
+        } catch {}
+        navigate("/partner/dashboard"); // Redirect to partner dashboard after successful registration
       })
       .catch(error => {
         console.error("There was an error registering!", error);

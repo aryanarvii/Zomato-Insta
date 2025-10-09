@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import '../../styles/reels.css'
 import axios from 'axios'
 import ReelFeed from '../../components/ReelFeed'
+import BackButton from '../../components/BackButton'
 
 const Saved = () => {
     const [ videos, setVideos ] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/food/save", { withCredentials: true })
+        axios.get(`${import.meta.env.VITE_REACT_APP_API_URL}/api/food/save`, { withCredentials: true })
             .then(response => {
                 const savedFoods = response.data.savedFoods.map((item) => ({
                     _id: item.food._id,
@@ -46,12 +47,15 @@ const Saved = () => {
     }
 
     return (
-        <ReelFeed
-            items={videos}
-            onSave={removeSaved}
-            onLike={likeVideo}
-            emptyMessage="No saved videos yet."
-        />
+        <div style={{position:'relative'}}>
+            <div style={{position:'fixed', top: 12, left: 12, zIndex: 10}}><BackButton /></div>
+            <ReelFeed
+                items={videos}
+                onSave={removeSaved}
+                onLike={likeVideo}
+                emptyMessage="No saved videos yet."
+            />
+        </div>
     )
 }
 

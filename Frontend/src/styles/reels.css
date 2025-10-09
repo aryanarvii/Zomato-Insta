@@ -150,3 +150,39 @@
 .empty-state{
   position: absolute; inset: 0; display: grid; place-items: center; color: #fff;
 }
+
+/* Reel View Page Styles */
+.reel-view-page {
+  position: relative;
+  min-height: 100dvh;
+  background: var(--color-bg);
+}
+
+.back-button {
+  position: fixed;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  backdrop-filter: blur(8px);
+}
+
+.back-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.05);
+}
+
+.back-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}

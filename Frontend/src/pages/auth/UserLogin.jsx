@@ -2,10 +2,12 @@ import React from 'react';
 import '../../styles/auth-shared.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
+import { toast } from 'react-toastify';
 
 const UserLogin = () => {
-
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,14 +15,18 @@ const UserLogin = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/user/login`, {
-      email,
-      password
-    }, { withCredentials: true });
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/api/auth/user/login`, {
+        email,
+        password
+      }, { withCredentials: true });
 
-    console.log(response.data);
-
-    navigate("/"); // Redirect to home after login
+      login(response.data.user);
+      toast.success('Welcome back!');
+      navigate("/home");
+    } catch (err) {
+      toast.error(err?.response?.data?.message || 'Login failed');
+    }
 
   };
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import '../../styles/create-food.css';
+import BackButton from '../../components/BackButton'
 import { useNavigate } from 'react-router-dom';
 
 const CreateFood = () => {
@@ -56,7 +57,7 @@ const CreateFood = () => {
         formData.append('description', description);
         formData.append("video", videoFile);
 
-        const response = await axios.post("http://localhost:3000/api/food", formData, {
+        const response = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/api/food`, formData, {
           headers: { "Content-Type": "multipart/form-data" },
           withCredentials: true,
         })
@@ -71,6 +72,9 @@ const CreateFood = () => {
 
     return (
         <div className="create-food-page">
+            <div style={{padding:'12px 16px'}}>
+                <BackButton />
+            </div>
             <div className="create-food-card">
                 <header className="create-food-header">
                     <h1 className="create-food-title">Create Food</h1>

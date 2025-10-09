@@ -2,10 +2,12 @@ import React from 'react';
 import '../../styles/auth-shared.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
+import { toast } from 'react-toastify';
 
 const FoodPartnerLogin = () => {
-
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,14 +15,19 @@ const FoodPartnerLogin = () => {
     const email = e.target.email.value;
     const password = e.target.password.value; 
 
-    const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/food-partner/login`, {
-      email,
-      password
-    }, { withCredentials: true });
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/api/auth/food-partner/login`, {
+        email,
+        password
+      }, { withCredentials: true });
 
-    console.log(response.data);
-
-    navigate("/create-food"); // Redirect to create food page after login
+      const userPayload = response.data.user || { userType: 'food-partner', name: e.target.email.value }
+      login(userPayload);
+      toast.success('Welcome partner!');
+      navigate("/partner/dashboard");
+    } catch (err) {
+      toast.error(err?.response?.data?.message || 'Partner login failed');
+    }
 
   };
 
